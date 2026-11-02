@@ -1,6 +1,6 @@
 #!/bin/bash
-# Compila y arranca el juego (necesita JDK 17+). Opciones: --lan (jugar desde el móvil en tu wifi),
-# --port=8080, --no-browser (no abrir el navegador solo).
+# Compiles and launches the game (requires JDK 17+). Options: --lan (play from your phone over your Wi-Fi),
+# --port=8080, --no-browser (do not open the browser automatically).
 set -e
 cd "$(dirname "$0")"
 mkdir -p out
