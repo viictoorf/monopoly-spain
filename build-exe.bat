@@ -1,5 +1,5 @@
 @echo off
-rem Crea dist\MonopolyEspana\MonopolyEspana.exe con Java incluido (necesita JDK 17+).
+rem Creates dist\MonopolyEspana\MonopolyEspana.exe with Java included (requires JDK 17+).
 chcp 65001 >nul
 cd /d "%~dp0"
 if exist build rmdir /s /q build
@@ -14,5 +14,5 @@ rmdir /s /q build\classes
 del build\sources.txt
 jpackage --type app-image --name MonopolyEspana --input build --main-jar monopoly.jar --dest dist --win-console || exit /b 1
 echo.
-echo Listo: dist\MonopolyEspana\MonopolyEspana.exe
+echo Done: dist\MonopolyEspana\MonopolyEspana.exe
 pause
