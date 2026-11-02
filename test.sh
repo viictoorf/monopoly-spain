@@ -1,5 +1,5 @@
 #!/bin/bash
-# Compila y pasa todos los tests (necesita JDK 17+).
+# Compiles and runs all tests (requires JDK 17+).
 set -e
 cd "$(dirname "$0")"
 mkdir -p out out-test
