@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <title>Monopoly España</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎲%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body data-view="setup">
+  <header id="top">
+    <h1 class="logo">Monopoly <span>España</span></h1>
+    <nav aria-label="Acciones de la partida">
+      <button id="bUndo" class="nav" hidden title="Deshacer la última jugada">↶ Deshacer</button>
+      <button id="bFinish" class="nav" hidden title="Terminar ahora: gana quien más patrimonio tenga">🏁 Terminar</button>
+      <button id="bNew" class="nav" hidden title="Empezar otra partida">Nueva</button>
+      <button id="bSound" class="nav" title="Sonido">🔊</button>
+    </nav>
+  </header>
+
+  <main id="setup" hidden>
+    <section class="card setup-card">
+      <h2 class="display">¿Quién se sienta a la mesa?</h2>
+      <p class="muted">De 2 a 6 jugadores. Toca la ficha para cambiarla y el 🤖 para que juegue el ordenador.</p>
+      <div id="rows"></div>
+      <div class="row-actions"><button id="bAdd" class="btn sec">+ Añadir jugador</button></div>
+      <fieldset>
+        <legend>Duración</legend>
+        <select id="rounds" aria-label="Duración de la partida">
+          <option value="0">Partida completa: hasta que quede uno</option>
+          <option value="30">Rápida: 30 rondas, gana el más rico</option>
+          <option value="15">Exprés: 15 rondas, gana el más rico</option>
+        </select>
+      </fieldset>
+      <label class="check"><input type="checkbox" id="house"> <span><strong>Reglas de casa</strong>: piscinas y pistas de deporte sobre los hoteles, y poderes para el coche y el balón.</span></label>
+      <div class="row-actions">
+        <button id="bStart" class="btn pri">¡A jugar!</button>
+        <button id="bLoad" class="btn sec" hidden></button>
+        <button id="bBack" class="btn sec" hidden>Volver a la partida en curso</button>
+      </div>
+    </section>
+  </main>
+
+  <main id="game" hidden>
+    <section id="boardwrap" aria-label="Tablero">
+      <div id="board">
+        <div id="center">
+          <div class="plate">
+            <h2 class="logo">Monopoly <span>España</span></h2>
+            <div class="dice" aria-live="polite"><span class="die"></span><span class="die"></span></div>
+            <p id="cturn"></p>
+            <p id="cinfo"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <aside id="side">
+      <section id="turn" class="card" aria-live="polite"></section>
+      <section id="players" class="card"></section>
+      <section id="mine" class="card"></section>
+      <section id="logbox" class="card"><h2>Lo que ha pasado</h2><ol id="log"></ol></section>
+    </aside>
+  </main>
+
+  <dialog id="info"></dialog>
+  <dialog id="trade"></dialog>
+  <dialog id="over"></dialog>
+  <div id="toast" role="status" aria-live="assertive"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
