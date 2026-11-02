@@ -1,6 +1,6 @@
 #!/bin/bash
-# Crea una carpeta ejecutable con Java incluido (jpackage, viene con el JDK 17+).
-# Hay que ejecutarlo en el sistema para el que quieres el programa: en Windows genera un .exe.
+# Creates a standalone application bundle with Java included (jpackage, bundled with JDK 17+).
+# Run it on the target operating system: on Windows, it generates a .exe file.
 set -e
 cd "$(dirname "$0")"
 rm -rf build dist
@@ -10,4 +10,4 @@ cp -r src/main/resources/* build/classes/
 jar --create --file build/monopoly.jar --main-class monopoly.Main -C build/classes .
 rm -rf build/classes
 jpackage --type app-image --name MonopolyEspana --input build --main-jar monopoly.jar --dest dist --win-console
-echo "Listo: dist/MonopolyEspana"
+echo "Done: dist/MonopolyEspana"
